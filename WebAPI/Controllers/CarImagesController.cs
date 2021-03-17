@@ -30,7 +30,7 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet("GetImagesCarById")]
+        [HttpGet("getbyid")]
         public IActionResult GetById([FromForm(Name = ("Id"))] int id)
         {
             var result = _carImageService.Get(id);
@@ -40,6 +40,20 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getcarphotos/{id}")] //[FromForm(Name = ("CarId"))]
+        public IActionResult GetPhotosByCarId(int id)
+        {
+            var result = _carImageService.GetPhotosByCarId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+
         [HttpPost("add")]
         public IActionResult Add([FromForm(Name = ("Image"))] IFormFile formFile, [FromForm] CarImage carImage)
         {

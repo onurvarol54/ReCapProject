@@ -72,10 +72,20 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
-        public IDataResult<CarImage> GetByCarId(int id)
+        
+        public IDataResult<List<CarImage>> GetPhotosByCarId(int id)
         {
-            return new SuccessDataResult<CarImage>(_carImageDal.Get(p => p.CarId == id));
+            IResult result = BusinessRules.Run(CheckIfCarImageNull(id));
+
+            if (result != null)
+            {
+                return new ErrorDataResult<List<CarImage>>(result.Message);
+            }
+
+            return new SuccessDataResult<List<CarImage>>(CheckIfCarImageNull(id).Data);
         }
+
+
         private IResult CheckIfImageLimit(int carid)
         {
             var carImage = _carImageDal.GetAll(p => p.CarId == carid).Count;

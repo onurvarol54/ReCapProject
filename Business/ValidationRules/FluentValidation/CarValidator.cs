@@ -12,9 +12,9 @@ namespace Business.ValidationRules.FluentValidation
     {
         public CarValidator()
         {
-            RuleFor(p => p.Description).MinimumLength(2).WithMessage("Description must be at least 2 characters");
-            RuleFor(p => p.Description).NotEmpty();
-            RuleFor(p => p.Description).NotNull();
+            RuleFor(p => p.Descriptions).MinimumLength(2).WithMessage("Description must be at least 2 characters");
+            RuleFor(p => p.Descriptions).NotEmpty();
+            RuleFor(p => p.Descriptions).NotNull();
             RuleFor(p => p.DailyPrice).GreaterThan(0);
             RuleFor(p => p.DailyPrice).NotEmpty();
             //RuleFor(p => p.DailyPrice).GreaterThanOrEqualTo(100).When(p => p.BrandId == 1);
@@ -25,7 +25,7 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(p => p.ColorId).GreaterThan(0);
             RuleFor(p => p.ColorId).NotEmpty();
 
-            RuleFor(p => p.Description).Must(StartWithA).When(p=>p.Description!=null).WithMessage("Description Must start with the letter A");           
+            RuleFor(p => p.Descriptions).Must(StartWithA).When(p=>p.Descriptions!=null).WithMessage("Description Must start with the letter A");           
         }
         private bool StartWithA(string arg)
         {

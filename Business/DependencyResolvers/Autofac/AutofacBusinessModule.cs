@@ -7,6 +7,7 @@ using Core.Utilities.Interceptors;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Core.Utilities.Security.Jwt;
+using Core.Utilities.SendMail;
 
 namespace Business.DependencyResolvers.Autofac
 {

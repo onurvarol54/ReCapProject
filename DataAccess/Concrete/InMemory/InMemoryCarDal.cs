@@ -18,9 +18,9 @@ namespace DataAccess.Concrete.InMemory
         {
             _cars = new List<Car>
             {
-                new Car{Id=2,BrandId=2,ColorId=33,ModelYear=2014,DailyPrice=56929,Description="Info." },
-                new Car{Id=3,BrandId=2,ColorId=15,ModelYear=2020,DailyPrice=96723,Description="Info." },
-                new Car{Id=4,BrandId=2,ColorId=78,ModelYear=1994,DailyPrice=26173,Description="Info." },
+                new Car{Id=2,BrandId=2,ColorId=33,ModelYear=2014,DailyPrice=56929,Descriptions="Info." },
+                new Car{Id=3,BrandId=2,ColorId=15,ModelYear=2020,DailyPrice=96723,Descriptions="Info." },
+                new Car{Id=4,BrandId=2,ColorId=78,ModelYear=1994,DailyPrice=26173,Descriptions="Info." },
             };
         }
 
@@ -74,7 +74,7 @@ namespace DataAccess.Concrete.InMemory
             updatedToCar.ColorId = car.ColorId;
             updatedToCar.ModelYear = car.ModelYear;
             updatedToCar.DailyPrice = car.DailyPrice;
-            updatedToCar.Description = car.Description;
+            updatedToCar.Descriptions = car.Descriptions;
         }
     }
 }
